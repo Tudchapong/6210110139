@@ -6,7 +6,7 @@ const word = "Hello";
     return (
       <div>
       {
-        Array.from(word).map((c, i) => <CharacterCard value={c} key={i}/>)
+        <WordCard value="hello"/>
       }
       </div>
     );
