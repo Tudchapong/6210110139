@@ -24,17 +24,26 @@ export default function WordCard(props){
 
         if(guess.length == state.word.length){
             if(guess == state.word){
-                console.log('Correct Answer')
+                console.log('You are winner.')
                 setState({...state, completed: true})
+                console.log(`you play for ${state.attempt} time.`)
             }else{
                 console.log('reset, next attempt')
                 setState({...state, guess: '', attempt: state.attempt + 1})
-                if(state.attempt == 4 ){
+                if(state.attempt == 8 ){
                     console.log('GAME OVER')
                     setState({...state, completed: true})
-                }else{
-                    console.log('Hint : word must has meaning ') 
+                if(state.attempt == 4 ){
+                    console.log(' Hint : This word starts with "R".')
                 }
+                if(state.attempt == 7 ){
+                    console.log(' Hint : This word ends with "D".')
+                }
+                }else{
+                    console.log('Hint : word must has meaning.') 
+                }
+                console.log(`you play for ${state.attempt} time.`)
+                console.log(`you have ${8-state.attempt} chance.`)
             }
         }
         console.log(guess)
