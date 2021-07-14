@@ -13,10 +13,14 @@ export default class CustomerForm extends React.Component {
   }
   
   handleWordChanged(event) {
-  var word       = this.in.word;
+  let word = this.in.word;
   word  = event.target.value;
 
   this.setState({ word: word });
+}
+
+handleButtonClicked() {
+  console.log(this.in.word);
 }
 
   render() {
@@ -25,17 +29,22 @@ export default class CustomerForm extends React.Component {
         <label>
           Word input: 
         </label>
-        <input type="text" value={this.in.word} onChange={this.handleWordChanged.bind(this)}/>
+        <input type="const" value={this.in.word} onChange={this.handleWordChanged.bind(this)}/>
+        <hr/>
+        <button onClick={this.handleButtonClicked.bind(this)}>
+          Save 
+        </button>
+        <WordCard value={this.in.word}/>
       </div>
     );
   }
 }
 
-  /*function App() {
+/*  function App() {
     return (
       <div>
       {
-        //<WordCard value="hello"/>
+        <WordCard value={word}/>
       }
       </div>
     );
