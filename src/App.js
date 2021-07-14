@@ -3,22 +3,29 @@ import { useEffect,useState } from 'react';
 import './App.css';
 import WordCard from './WordCard';
 
-const word = "Hello";
+//const word = "Hello";
 
 export default class CustomerForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.word = {props}
+    this.in = {word: props.word}
   }
+  
+  handleWordChanged(event) {
+  var word       = this.in.word;
+  word  = event.target.value;
 
-  function App() {
+  this.setState({ word: word });
+}
+
+  render() {
     return (
       <div>
         <label>
           Word input: 
         </label>
-        <input type="text" value={this.word}/>
+        <input type="text" value={this.in.word} onChange={this.handleWordChanged.bind(this)}/>
       </div>
     );
   }
