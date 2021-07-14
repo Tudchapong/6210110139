@@ -1,24 +1,30 @@
 import React from 'react';
-import React, { useEffect,useState } from 'react';
+import { useEffect,useState } from 'react';
 import './App.css';
-//import WordCard from './WordCard';
+import WordCard from './WordCard';
 
-const word = [
-  {id:1,char: "R"},
-  {id:2,char: "e"},
-  {id:3,char: "l"},
-  {id:4,char: "o"},
-  {id:5,char: "a"},
-  {id:6,char: "d"}
-];
+const word = "Hello";
 
-const pairword = [...word,...word];
+export default class CustomerForm extends React.Component {
+  constructor(props) {
+    super(props);
 
-function flipCard(index) {
-  setOpenedCard((opened) => [...opened, index]);
-}
+    this.word = {props}
+  }
 
   function App() {
+    return (
+      <div>
+        <label>
+          Word input: 
+        </label>
+        <input type="text" value={this.word}/>
+      </div>
+    );
+  }
+}
+
+  /*function App() {
     return (
       <div>
       {
@@ -28,4 +34,4 @@ function flipCard(index) {
     );
   }
 
-export default App;
+export default App;*/
