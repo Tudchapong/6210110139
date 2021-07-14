@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import CharacterCard from './CharacterCard';
 import _, { attempt } from 'lodash';
 
@@ -14,7 +14,6 @@ const prepareStateFromWord = given_word => {
     }
 }
 export default function WordCard(props){
-
     const [state, setState] = useState(prepareStateFromWord(props.value))
 
     const activationHandler = c =>{
