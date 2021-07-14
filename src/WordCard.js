@@ -2,15 +2,15 @@ import React, { useEffect,useState } from 'react';
 import CharacterCard from './CharacterCard';
 import _, { attempt } from 'lodash';
 
-const prepareStateFromWord = given_word => {
-    let word = given_word.toUpperCase()
+const prepareStateFromWord = (given_word) => {
+    let word = given_word.toLowerCase()
     let chars = _.shuffle(Array.from(word))
-    return{
+    return {
         word,
         chars,
         attempt: 1,
         guess: '',
-        completed: false
+        completed: false 
     }
 }
 export default function WordCard(props){
@@ -24,14 +24,21 @@ export default function WordCard(props){
 
         if(guess.length == state.word.length){
             if(guess == state.word){
-                console.log('yeah!')
+                console.log('Correct Answer')
                 setState({...state, completed: true})
             }else{
                 console.log('reset, next attempt')
                 setState({...state, guess: '', attempt: state.attempt + 1})
+                if(state.attempt == 4 ){
+                    console.log('GAME OVER')
+                    setState({...state, completed: true})
+                }else{
+                    console.log('Hint : word must has meaning ') 
+                }
             }
         }
         console.log(guess)
+
     } 
     return (
     <div>
